@@ -4,8 +4,7 @@
 image: node:latest
 
 stages:
-  - ls
-  - test
+  - install
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -14,15 +13,9 @@ cache:
   - node_modules/
 
 
-ls:
-  stage: ls
-  script: "ls -l"
-
-test:
-  stage: test
+install:
+  stage: install
   script: 
+    - ls -l
     - npm install
-    - npm test
-    
-
 
