@@ -12,10 +12,20 @@ cache:
   paths:
   - node_modules/
 
-
 install:
   stage: install
   script: 
-    - ls -l
     - npm install
+    
+    
+pages:
+  stage: deploy
+  script:
+  - npm run build
+  - mv dist public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
 
